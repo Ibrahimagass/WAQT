@@ -28,10 +28,10 @@ export default async function handler(req, res) {
   } catch (err) {
     console.error("AI request error:", err);
     if (String(err?.message).includes("not configured")) {
-      // distinct code so the UI can tell "missing key" apart from a flaky network
       res.status(503).json({ error: "ai_not_configured" });
       return;
     }
-    res.status(502).json({ error: "AI provider request failed" });
+    const status = String(err?.message).includes("timed out") ? 504 : 502;
+    res.status(status).json({ error: "AI provider request failed", details: String(err?.message || "") });
   }
 }
