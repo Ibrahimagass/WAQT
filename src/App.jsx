@@ -239,8 +239,12 @@ export default function App() {
         setMosqueMsg(t("mosques.none"));
       }
     } catch (e) {
-      // network/AI failure — keep whatever cached results are on screen
-      setMosqueMsg(e?.notConfigured ? t("ai.notConfigured") : t("mosques.failed"));
+      const reason = e?.notConfigured
+        ? t("ai.notConfigured")
+        : e?.message?.includes("429") || e?.message?.includes("quota") || e?.message?.includes("rate")
+          ? t("mosques.quota")
+          : t("mosques.failed");
+      setMosqueMsg(reason);
     } finally {
       setMosqueBusy(false);
     }

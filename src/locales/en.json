@@ -111,6 +111,7 @@
     "searching": "Searching…",
     "none": "No mosque found online near this place. Try again, or check your location.",
     "failed": "Search isn't available right now. Try again in a moment.",
+    "quota": "The AI service is currently rate-limited by Google Gemini. Please try again later or use an already cached result.",
     "currentSource": "Current source of times",
     "disable": "Disable",
     "timesFound": "Times found",

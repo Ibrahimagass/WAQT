@@ -111,6 +111,7 @@
     "searching": "Recherche en cours…",
     "none": "Aucune mosquée trouvée en ligne autour de ce lieu. Réessaie, ou vérifie ta position.",
     "failed": "Recherche impossible pour le moment. Réessaie dans un instant.",
+    "quota": "Le service IA est actuellement limité par Google Gemini. Réessaie plus tard ou utilise un résultat déjà en cache.",
     "currentSource": "Source actuelle des horaires",
     "disable": "Désactiver",
     "timesFound": "Horaires trouvés",
