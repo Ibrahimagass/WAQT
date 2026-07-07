@@ -6,7 +6,7 @@ import { vercelApiDevPlugin } from "./vite-plugins/vercelApiDev.js";
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: "/WAQT/",
+  base: "/",
   plugins: [
     react(),
     tailwindcss(),
