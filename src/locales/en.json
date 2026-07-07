@@ -1,0 +1,197 @@
+{
+  "nav": {
+    "home": "Home",
+    "mosques": "Mosques",
+    "qibla": "Qibla",
+    "stats": "Stats",
+    "settings": "Settings"
+  },
+  "common": {
+    "appName": "Waqt",
+    "cancel": "Cancel",
+    "close": "Close",
+    "retry": "Retry",
+    "ok": "OK"
+  },
+  "prayers": {
+    "fajr": "Fajr",
+    "dhuhr": "Dhuhr",
+    "asr": "Asr",
+    "maghrib": "Maghrib",
+    "isha": "Isha"
+  },
+  "methods": {
+    "MWL": "Muslim World League (18° / 17°)",
+    "ISNA": "ISNA — North America (15° / 15°)",
+    "EGYPT": "Egyptian Authority (19.5° / 17.5°)",
+    "MAKKAH": "Umm al-Qura, Mecca (18.5° / +90 min)",
+    "KARACHI": "University of Karachi (18° / 18°)"
+  },
+  "asr": {
+    "STANDARD": "Standard (majority)",
+    "HANAFI": "Hanafi"
+  },
+  "mode": {
+    "focus": { "label": "Focus", "desc": "A photo is required to stop the reminder" },
+    "voyage": { "label": "Travel", "desc": "3 snoozes/week, no photo needed" }
+  },
+  "hijriMonths": {
+    "muharram": "Muharram",
+    "safar": "Safar",
+    "rabiAwwal": "Rabi al-Awwal",
+    "rabiThani": "Rabi al-Thani",
+    "jumadaAwwal": "Jumada al-Awwal",
+    "jumadaThani": "Jumada al-Thani",
+    "rajab": "Rajab",
+    "shaban": "Sha'ban",
+    "ramadan": "Ramadan",
+    "shawwal": "Shawwal",
+    "dhulQida": "Dhu al-Qi'dah",
+    "dhulHijja": "Dhu al-Hijjah"
+  },
+  "onboarding": {
+    "description": "An accurate location means accurate times. Choose how to set yours."
+  },
+  "locationEditor": {
+    "gpsButton": "Precise GPS location",
+    "searchLabel": "or search for an address / area",
+    "searchPlaceholder": "e.g. 221B Baker Street, London",
+    "searchAria": "Search",
+    "cityLabel": "or pick a city from the list",
+    "cityConfirm": "OK"
+  },
+  "messages": {
+    "locating": "Locating via GPS…",
+    "identifying": "Identifying the place…",
+    "geoUnavailable": "Geolocation isn't available on this device.",
+    "locationDenied": "Location access denied. Try the address search below.",
+    "searching": "Searching…",
+    "notFound": "Place not found. Try a more specific address or city.",
+    "searchFailed": "Search isn't available right now. Try again or pick a city from the list."
+  },
+  "toast": {
+    "locationSaved": "Precise location saved: {{label}}",
+    "locationFound": "Place found: {{label}}",
+    "mosqueActivated": "Now using “{{name}}”'s prayer times.",
+    "mosqueCleared": "Back to astronomical calculation.",
+    "methodUpdated": "Calculation method updated.",
+    "asrUpdated": "Asr method updated.",
+    "modeFocus": "Focus mode: a photo is required to stop the reminder.",
+    "modeVoyage": "Travel mode: 3 snoozes per week.",
+    "statsReset": "Stats reset.",
+    "reminderPostponed": "Reminder snoozed — {{count}} snooze(s) left this week.",
+    "prayerConfirmed": "Prayer confirmed — may it be accepted.",
+    "testSuccess": "Test successful.",
+    "prayerSoon": "{{prayer}} in 10 minutes."
+  },
+  "home": {
+    "nextPrayer": "Next prayer",
+    "testReminder": "Test the reminder",
+    "travelMode": "Travel mode · {{count}} snooze(s) this week",
+    "current": "in progress",
+    "mosqueTimesActive": "Times: {{name}}",
+    "calendar": "Calendar",
+    "share": "Share"
+  },
+  "calendar": {
+    "title": "Monthly calendar",
+    "note": "Times computed with your current method. If a mosque is active, its times only apply to today."
+  },
+  "share": {
+    "header": "Prayer times — {{place}} — {{date}}",
+    "copied": "Times copied to clipboard."
+  },
+  "ai": {
+    "notConfigured": "AI service not configured: add your Gemini key to the .env.local file (see README), then restart the app."
+  },
+  "mosques": {
+    "title": "Nearby mosques",
+    "description": "Online search around {{place}}. You can use a mosque's times instead of the astronomical calculation.",
+    "searchButton": "Search for mosques",
+    "searching": "Searching…",
+    "none": "No mosque found online near this place. Try again, or check your location.",
+    "failed": "Search isn't available right now. Try again in a moment.",
+    "currentSource": "Current source of times",
+    "disable": "Disable",
+    "timesFound": "Times found",
+    "timesNotFound": "Times not found",
+    "use": "Use these times",
+    "disclaimer": "Times generated via AI web search — they may be approximate or outdated. Check with the mosque for the iqama.",
+    "favorite": "Favorite",
+    "favorites": "My favorite mosques",
+    "results": "Search results",
+    "favAdded": "“{{name}}” added to favorites.",
+    "favRemoved": "“{{name}}” removed from favorites.",
+    "cached": "Results from your last search (offline)"
+  },
+  "qibla": {
+    "title": "Qibla",
+    "enableCompass": "Enable compass",
+    "aligned": "Aligned with the Qibla",
+    "liveHint": "The arrow points to the Kaaba — turn with your phone.",
+    "staticHint": "Direction of the Kaaba from {{place}} (relative to north).",
+    "permissionDenied": "Permission denied. Enable the compass in your browser settings."
+  },
+  "tasbih": {
+    "title": "Tasbih",
+    "instructions": "of {{target}} · tap to count",
+    "reset": "Restart",
+    "complete": "Tasbih complete — 33 · 33 · 34.",
+    "phases": {
+      "subhanallah": "SubhanAllah",
+      "alhamdulillah": "Alhamdulillah",
+      "allahuAkbar": "Allahu Akbar"
+    }
+  },
+  "stats": {
+    "title": "Consistency",
+    "streak": "Streak",
+    "confirmed": "Confirmed",
+    "passes": "Snoozes",
+    "last7": "Last 7 days",
+    "prayers": "Prayers",
+    "history": "Confirmed prayer history",
+    "footer": "Consistency matters more than a perfect score. A missed day takes nothing away from the ones that follow."
+  },
+  "settings": {
+    "title": "Settings",
+    "currentPosition": "Current location",
+    "reminderMode": "Reminder mode",
+    "calcMethod": "Calculation method",
+    "mosqueNote": "Note: “{{name}}”'s times currently override this calculation.",
+    "asrMethod": "Asr calculation",
+    "notifications": "Notifications",
+    "notifDesc": "Reminder 10 min before each prayer and at adhan time (while the app is open).",
+    "notifDenied": "Notifications blocked by the browser. Allow them in its settings.",
+    "notifUnsupported": "Notifications aren't supported in this browser.",
+    "notifOn": "Enabled",
+    "notifOff": "Disabled",
+    "theme": "Appearance",
+    "themeOptions": { "light": "Light", "dark": "Dark", "auto": "Automatic" },
+    "language": "Language",
+    "privacy": "Privacy: photos are only used for verification and are never saved, on the device or on a server.",
+    "resetStats": "Reset statistics"
+  },
+  "alarm": {
+    "title": "It's time for {{prayer}}",
+    "instructions": "To stop the reminder: a photo of the tap for ablution, or of your prayer mat.",
+    "wudu": "Tap (wudu)",
+    "mat": "Prayer mat",
+    "openCamera": "Open camera",
+    "postpone": "Snooze ({{count}} left)",
+    "cancelTest": "Cancel this test"
+  },
+  "camera": {
+    "frameHint": "Frame the tap or the prayer mat",
+    "verifying": "Verifying…",
+    "cancel": "Cancel",
+    "shoot": "Photo",
+    "retake": "Retake",
+    "send": "Send",
+    "retry": "Retry",
+    "close": "Close",
+    "unavailable": "Camera unavailable here (permission denied or restricted browser).",
+    "streamMissing": "Video stream unavailable.",
+    "verifyUnavailable": "Verification isn't available right now. Try again."
+  }
+}

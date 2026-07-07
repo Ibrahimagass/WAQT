@@ -1,0 +1,197 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "mosques": "Mosquées",
+    "qibla": "Qibla",
+    "stats": "Stats",
+    "settings": "Réglages"
+  },
+  "common": {
+    "appName": "Waqt",
+    "cancel": "Annuler",
+    "close": "Fermer",
+    "retry": "Réessayer",
+    "ok": "OK"
+  },
+  "prayers": {
+    "fajr": "Fajr",
+    "dhuhr": "Dhuhr",
+    "asr": "Asr",
+    "maghrib": "Maghrib",
+    "isha": "Isha"
+  },
+  "methods": {
+    "MWL": "Ligue islamique mondiale (18° / 17°)",
+    "ISNA": "ISNA — Amérique du Nord (15° / 15°)",
+    "EGYPT": "Autorité égyptienne (19.5° / 17.5°)",
+    "MAKKAH": "Umm al-Qura, La Mecque (18.5° / +90 min)",
+    "KARACHI": "Université de Karachi (18° / 18°)"
+  },
+  "asr": {
+    "STANDARD": "Standard (majorité)",
+    "HANAFI": "Hanafite"
+  },
+  "mode": {
+    "focus": { "label": "Focus", "desc": "Photo requise pour couper le rappel" },
+    "voyage": { "label": "Voyage", "desc": "3 reports/semaine sans photo" }
+  },
+  "hijriMonths": {
+    "muharram": "Mouharram",
+    "safar": "Safar",
+    "rabiAwwal": "Rabî al-Awwal",
+    "rabiThani": "Rabî ath-Thâni",
+    "jumadaAwwal": "Joumada al-Oula",
+    "jumadaThani": "Joumada ath-Thania",
+    "rajab": "Rajab",
+    "shaban": "Cha'bane",
+    "ramadan": "Ramadan",
+    "shawwal": "Chawwal",
+    "dhulQida": "Dhou al-Qi'da",
+    "dhulHijja": "Dhou al-Hijja"
+  },
+  "onboarding": {
+    "description": "Une position précise = des horaires précis. Choisis comment te localiser."
+  },
+  "locationEditor": {
+    "gpsButton": "Position GPS précise",
+    "searchLabel": "ou cherche une adresse / un quartier",
+    "searchPlaceholder": "Ex : 12 rue Véron, Alfortville",
+    "searchAria": "Chercher",
+    "cityLabel": "ou une ville de la liste",
+    "cityConfirm": "OK"
+  },
+  "messages": {
+    "locating": "Localisation GPS en cours…",
+    "identifying": "Identification du lieu…",
+    "geoUnavailable": "Géolocalisation indisponible sur cet appareil.",
+    "locationDenied": "Position refusée. Essaie la recherche d'adresse ci-dessous.",
+    "searching": "Recherche en cours…",
+    "notFound": "Lieu introuvable. Précise l'adresse ou la ville.",
+    "searchFailed": "Recherche impossible pour le moment. Réessaie ou choisis une ville dans la liste."
+  },
+  "toast": {
+    "locationSaved": "Position précise enregistrée : {{label}}",
+    "locationFound": "Lieu trouvé : {{label}}",
+    "mosqueActivated": "Horaires de « {{name}} » activés.",
+    "mosqueCleared": "Retour au calcul astronomique.",
+    "methodUpdated": "Méthode mise à jour.",
+    "asrUpdated": "Méthode Asr mise à jour.",
+    "modeFocus": "Mode Focus : photo requise pour couper le rappel.",
+    "modeVoyage": "Mode Voyage : 3 reports par semaine.",
+    "statsReset": "Statistiques réinitialisées.",
+    "reminderPostponed": "Rappel reporté — {{count}} report(s) restant(s) cette semaine.",
+    "prayerConfirmed": "Prière confirmée — qu'elle te soit acceptée.",
+    "testSuccess": "Test réussi.",
+    "prayerSoon": "{{prayer}} dans 10 minutes."
+  },
+  "home": {
+    "nextPrayer": "Prochaine prière",
+    "testReminder": "Tester le rappel",
+    "travelMode": "Mode voyage · {{count}} report(s) cette semaine",
+    "current": "en cours",
+    "mosqueTimesActive": "Horaires : {{name}}",
+    "calendar": "Calendrier",
+    "share": "Partager"
+  },
+  "calendar": {
+    "title": "Calendrier du mois",
+    "note": "Horaires calculés selon ta méthode actuelle. Si une mosquée est active, ses horaires ne s'appliquent qu'au jour même."
+  },
+  "share": {
+    "header": "Horaires de prière — {{place}} — {{date}}",
+    "copied": "Horaires copiés dans le presse-papiers."
+  },
+  "ai": {
+    "notConfigured": "Service IA non configuré : ajoute ta clé Gemini dans le fichier .env.local (voir README), puis relance l'application."
+  },
+  "mosques": {
+    "title": "Mosquées proches",
+    "description": "Recherche en ligne autour de {{place}}. Tu peux adopter les horaires d'une mosquée à la place du calcul astronomique.",
+    "searchButton": "Rechercher les mosquées",
+    "searching": "Recherche en cours…",
+    "none": "Aucune mosquée trouvée en ligne autour de ce lieu. Réessaie, ou vérifie ta position.",
+    "failed": "Recherche impossible pour le moment. Réessaie dans un instant.",
+    "currentSource": "Source actuelle des horaires",
+    "disable": "Désactiver",
+    "timesFound": "Horaires trouvés",
+    "timesNotFound": "Horaires non trouvés",
+    "use": "Utiliser ces horaires",
+    "disclaimer": "Horaires générés par IA (recherche web) — ils peuvent être approximatifs ou dater. Vérifie auprès de la mosquée pour l'iqama.",
+    "favorite": "Favori",
+    "favorites": "Mes mosquées favorites",
+    "results": "Résultats de la recherche",
+    "favAdded": "« {{name}} » ajoutée aux favoris.",
+    "favRemoved": "« {{name}} » retirée des favoris.",
+    "cached": "Résultats de la dernière recherche (hors-ligne)"
+  },
+  "qibla": {
+    "title": "Qibla",
+    "enableCompass": "Activer la boussole",
+    "aligned": "Aligné avec la Qibla",
+    "liveHint": "La flèche pointe vers la Kaaba — tourne-toi avec ton téléphone.",
+    "staticHint": "Direction de la Kaaba depuis {{place}} (par rapport au nord).",
+    "permissionDenied": "Permission refusée. Active la boussole dans les réglages du navigateur."
+  },
+  "tasbih": {
+    "title": "Tasbih",
+    "instructions": "sur {{target}} · touche pour compter",
+    "reset": "Recommencer",
+    "complete": "Tasbih complet — 33 · 33 · 34.",
+    "phases": {
+      "subhanallah": "Subhânallâh",
+      "alhamdulillah": "Al-hamdulillâh",
+      "allahuAkbar": "Allâhu akbar"
+    }
+  },
+  "stats": {
+    "title": "Régularité",
+    "streak": "Série",
+    "confirmed": "Confirmées",
+    "passes": "Reports",
+    "last7": "7 derniers jours",
+    "prayers": "Prières",
+    "history": "Historique des prières validées",
+    "footer": "La régularité compte plus que le score. Une journée manquée ne retire rien à celles qui suivent."
+  },
+  "settings": {
+    "title": "Réglages",
+    "currentPosition": "Position actuelle",
+    "reminderMode": "Mode de rappel",
+    "calcMethod": "Méthode de calcul",
+    "mosqueNote": "Note : les horaires de « {{name}} » remplacent actuellement ce calcul.",
+    "asrMethod": "Calcul de l'Asr",
+    "notifications": "Notifications",
+    "notifDesc": "Rappel 10 min avant chaque prière et à l'heure de l'adhan (app ouverte).",
+    "notifDenied": "Notifications bloquées par le navigateur. Autorise-les dans ses réglages.",
+    "notifUnsupported": "Notifications non prises en charge sur ce navigateur.",
+    "notifOn": "Activées",
+    "notifOff": "Désactivées",
+    "theme": "Apparence",
+    "themeOptions": { "light": "Clair", "dark": "Sombre", "auto": "Automatique" },
+    "language": "Langue",
+    "privacy": "Confidentialité : les photos servent uniquement à la vérification et ne sont jamais enregistrées, ni sur l'appareil ni sur un serveur.",
+    "resetStats": "Réinitialiser les statistiques"
+  },
+  "alarm": {
+    "title": "C'est l'heure de {{prayer}}",
+    "instructions": "Pour arrêter le rappel : une photo du robinet pour les ablutions, ou de ton tapis de prière.",
+    "wudu": "Robinet (woudou)",
+    "mat": "Tapis de prière",
+    "openCamera": "Ouvrir la caméra",
+    "postpone": "Reporter ({{count}} restant(s))",
+    "cancelTest": "Annuler ce test"
+  },
+  "camera": {
+    "frameHint": "Cadre le robinet ou le tapis de prière",
+    "verifying": "Vérification en cours…",
+    "cancel": "Annuler",
+    "shoot": "Photo",
+    "retake": "Reprendre",
+    "send": "Envoyer",
+    "retry": "Réessayer",
+    "close": "Fermer",
+    "unavailable": "Caméra inaccessible ici (permission refusée ou navigateur restreint).",
+    "streamMissing": "Flux vidéo indisponible.",
+    "verifyUnavailable": "Vérification impossible pour le moment. Réessaie."
+  }
+}
