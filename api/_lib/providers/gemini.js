@@ -79,7 +79,8 @@ async function generateJSON({ prompt, webSearch = false, maxTokens = 1000 }) {
       lastErr = err;
     }
   }
-  throw lastErr;
+  const message = lastErr?.message || "Gemini request failed";
+  throw new Error(message);
 }
 
 async function verifyImage({ prompt, imageBase64, maxTokens = 300 }) {
