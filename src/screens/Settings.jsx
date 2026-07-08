@@ -4,6 +4,8 @@ import LocationEditor from "../components/LocationEditor";
 import ThemeSwitcher from "../components/ThemeSwitcher";
 import LanguageSwitcher from "../components/LanguageSwitcher";
 import { METHODS } from "../lib/prayerMath";
+import { useSettingsStore } from "../store/useSettingsStore";
+import { PRAYER_ORDER } from "../lib/constants";
 
 export default function Settings({
   loc,
@@ -22,6 +24,9 @@ export default function Settings({
   onResetStats,
 }) {
   const { t } = useTranslation();
+  const prayerOverrides = useSettingsStore((s) => s.prayerOverrides || {});
+  const setPrayerOverride = useSettingsStore((s) => s.setPrayerOverride);
+
   return (
     <div key="settings" className="rise">
       <h2 style={{ fontSize: 20, fontWeight: 800, margin: "0 0 12px" }}>{t("settings.title")}</h2>
@@ -100,6 +105,46 @@ export default function Settings({
               {t(`asr.${val}`)}
             </button>
           ))}
+        </div>
+      </div>
+
+      <div className="card mb-3" style={{ padding: 16 }}>
+        <div className="lbl mb-2 block">{t("settings.manualAdjust")}</div>
+        <div style={{ fontSize: 12, color: "var(--mut)", lineHeight: 1.45, marginBottom: 10 }}>
+          {t("settings.manualAdjustDesc")}
+        </div>
+        <div className="flex flex-col gap-2">
+          {PRAYER_ORDER.map((prayer) => {
+            const value = prayerOverrides[prayer] || "";
+            return (
+              <div key={prayer} className="flex items-center gap-2">
+                <div style={{ minWidth: 70, fontSize: 13, fontWeight: 700 }}>{t(`prayers.${prayer}`)}</div>
+                <input
+                  inputMode="numeric"
+                  pattern="[0-9]{1,2}:[0-9]{2}"
+                  placeholder="HH:MM"
+                  value={value}
+                  onChange={(e) => setPrayerOverride(prayer, e.target.value)}
+                  style={{
+                    flex: 1,
+                    padding: "8px 10px",
+                    borderRadius: 10,
+                    border: "1px solid var(--line2)",
+                    background: "var(--card2)",
+                    color: "var(--txt)",
+                    fontFamily: "inherit",
+                  }}
+                />
+                <button
+                  onClick={() => setPrayerOverride(prayer, "")}
+                  className="press"
+                  style={{ padding: "8px 10px", borderRadius: 10, fontSize: 12, fontWeight: 700 }}
+                >
+                  {t("settings.clearOverride")}
+                </button>
+              </div>
+            );
+          })}
         </div>
       </div>
 

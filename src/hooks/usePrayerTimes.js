@@ -2,8 +2,10 @@ import { useMemo } from "react";
 import { computePrayerTimes } from "../lib/prayerMath";
 import { fmtHours, parseHM } from "../lib/time";
 import { PRAYER_ORDER, PERIOD_BY_PRAYER } from "../lib/constants";
+import { useSettingsStore } from "../store/useSettingsStore";
 
 export function usePrayerTimes({ now, loc, method, asr, mosque }) {
+  const prayerOverrides = useSettingsStore((s) => s.prayerOverrides || {});
   const solarTimes = useMemo(
     () => (loc ? computePrayerTimes(now, loc.lat, loc.lon, method, asr) : null),
     [now, loc, method, asr]
@@ -11,14 +13,20 @@ export function usePrayerTimes({ now, loc, method, asr, mosque }) {
 
   const times = useMemo(() => {
     if (!solarTimes) return null;
-    if (!mosque?.horaires) return solarTimes;
     const t = { ...solarTimes };
     for (const k of PRAYER_ORDER) {
-      const v = parseHM(mosque.horaires[k]);
-      if (v !== null) t[k] = v;
+      const override = parseHM(prayerOverrides[k]);
+      if (override !== null) {
+        t[k] = override;
+        continue;
+      }
+      if (mosque?.horaires) {
+        const v = parseHM(mosque.horaires[k]);
+        if (v !== null) t[k] = v;
+      }
     }
     return t;
-  }, [solarTimes, mosque]);
+  }, [solarTimes, mosque, prayerOverrides]);
 
   const nowDec = now.getHours() + now.getMinutes() / 60 + now.getSeconds() / 3600;
 

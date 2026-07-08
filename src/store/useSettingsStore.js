@@ -4,8 +4,8 @@ import { storageGet, storageSet } from "../lib/storage";
 const STORAGE_KEY = "waqt_settings_v1";
 
 function persistedFields(state) {
-  const { loc, method, asr, mode, mosque, theme, locale, onboarded, favorites, notifEnabled } = state;
-  return { loc, method, asr, mode, mosque, theme, locale, onboarded, favorites, notifEnabled };
+  const { loc, method, asr, mode, mosque, theme, locale, onboarded, favorites, notifEnabled, prayerOverrides } = state;
+  return { loc, method, asr, mode, mosque, theme, locale, onboarded, favorites, notifEnabled, prayerOverrides };
 }
 
 export const useSettingsStore = create((set, get) => ({
@@ -19,6 +19,7 @@ export const useSettingsStore = create((set, get) => ({
   onboarded: false,
   favorites: [], // mosquées favorites [{nom, adresse, horaires, source}]
   notifEnabled: false,
+  prayerOverrides: {}, // { fajr: '05:30', dhuhr: '13:00', ... }
   hydrated: false,
 
   hydrate: async () => {
@@ -63,6 +64,14 @@ export const useSettingsStore = create((set, get) => ({
   },
   setNotifEnabled: (notifEnabled) => {
     set({ notifEnabled });
+    storageSet(STORAGE_KEY, persistedFields(get()));
+  },
+  setPrayerOverride: (prayer, value) => {
+    const prev = get().prayerOverrides || {};
+    const next = { ...prev };
+    if (value && String(value).trim()) next[prayer] = String(value).trim();
+    else delete next[prayer];
+    set({ prayerOverrides: next });
     storageSet(STORAGE_KEY, persistedFields(get()));
   },
 }));
