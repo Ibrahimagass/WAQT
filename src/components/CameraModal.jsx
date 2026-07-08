@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
-import { Camera as CameraIcon, RotateCcw, Check, X, Loader2 } from "lucide-react";
+import { Camera as CameraIcon, RotateCcw, Check, X, Loader2, SwitchCamera, Flashlight, FlashlightOff } from "lucide-react";
 import { verifyImage } from "../lib/aiClient";
 
 const LOCALE_NAMES = { fr: "French", en: "English", ar: "Arabic" };
@@ -23,6 +23,9 @@ export default function CameraModal({ open, isTest, locale, onClose, onVerified 
   const [capturedUrl, setCapturedUrl] = useState(null);
   const [verifyResult, setVerifyResult] = useState(null);
   const [confettiKey, setConfettiKey] = useState(0);
+  const [facingMode, setFacingMode] = useState("environment");
+  const [flashOn, setFlashOn] = useState(false);
+  const [hasFlash, setHasFlash] = useState(false);
 
   const videoRef = useRef(null);
   const canvasRef = useRef(null);
@@ -42,13 +45,20 @@ export default function CameraModal({ open, isTest, locale, onClose, onVerified 
     setCamError("");
     (async () => {
       try {
-        const stream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" }, audio: false });
+        const stream = await navigator.mediaDevices.getUserMedia({
+          video: { facingMode },
+          audio: false,
+        });
         if (cancelled) {
           stream.getTracks().forEach((tr) => tr.stop());
           return;
         }
         streamRef.current = stream;
-        if (videoRef.current) videoRef.current.srcObject = stream;
+        if (videoRef.current) {
+          videoRef.current.srcObject = stream;
+          const track = stream.getVideoTracks()[0];
+          setHasFlash(Boolean(track?.getCapabilities?.().torch));
+        }
       } catch {
         setCamError(t("camera.unavailable"));
       }
@@ -56,7 +66,7 @@ export default function CameraModal({ open, isTest, locale, onClose, onVerified 
     return () => {
       cancelled = true;
     };
-  }, [open, phase, t]);
+  }, [open, phase, facingMode, t]);
 
   useEffect(() => {
     if (!open) stopStream();
@@ -67,6 +77,24 @@ export default function CameraModal({ open, isTest, locale, onClose, onVerified 
     if (streamRef.current) {
       streamRef.current.getTracks().forEach((tr) => tr.stop());
       streamRef.current = null;
+    }
+  }
+
+  function toggleFacingMode() {
+    setFacingMode((prev) => (prev === "user" ? "environment" : "user"));
+    setFlashOn(false);
+  }
+
+  async function toggleFlash() {
+    if (!streamRef.current) return;
+    const track = streamRef.current.getVideoTracks()[0];
+    if (!track?.applyConstraints) return;
+    const next = !flashOn;
+    try {
+      await track.applyConstraints({ advanced: [{ torch: next }] });
+      setFlashOn(next);
+    } catch {
+      setFlashOn(false);
     }
   }
 
@@ -133,6 +161,28 @@ export default function CameraModal({ open, isTest, locale, onClose, onVerified 
       style={{ zIndex: 20, background: "#050B09", borderRadius: "var(--radius-xl)" }}
     >
       <div className="relative w-full" style={{ maxWidth: 336 }}>
+        {phase === "shoot" && (
+          <div className="absolute top-3 z-10 flex w-full items-center justify-between px-3" style={{ pointerEvents: "none" }}>
+            <button
+              type="button"
+              onClick={toggleFacingMode}
+              className="press"
+              style={{ pointerEvents: "auto", borderRadius: 999, background: "rgba(0,0,0,0.55)", color: "white", border: "1px solid rgba(255,255,255,0.2)", padding: "8px 10px" }}
+            >
+              <SwitchCamera size={15} />
+            </button>
+            {hasFlash && (
+              <button
+                type="button"
+                onClick={toggleFlash}
+                className="press"
+                style={{ pointerEvents: "auto", borderRadius: 999, background: "rgba(0,0,0,0.55)", color: "white", border: "1px solid rgba(255,255,255,0.2)", padding: "8px 10px" }}
+              >
+                {flashOn ? <Flashlight size={15} /> : <FlashlightOff size={15} />}
+              </button>
+            )}
+          </div>
+        )}
         {phase === "shoot" && (
           <video
             ref={videoRef}
