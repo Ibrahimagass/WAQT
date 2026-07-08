@@ -176,6 +176,12 @@
     "privacy": "Confidentialité : les photos servent uniquement à la vérification et ne sont jamais enregistrées, ni sur l'appareil ni sur un serveur.",
     "resetStats": "Réinitialiser les statistiques"
   },
+  "timePicker": {
+    "title": "Régler {{prayer}}",
+    "subtitle": "Choisis une heure précise pour cette prière.",
+    "apply": "Appliquer",
+    "clear": "Effacer"
+  },
   "alarm": {
     "title": "C'est l'heure de {{prayer}}",
     "instructions": "Pour arrêter le rappel : une photo du robinet pour les ablutions, ou de ton tapis de prière.",

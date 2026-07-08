@@ -176,6 +176,12 @@
     "privacy": "Privacy: photos are only used for verification and are never saved, on the device or on a server.",
     "resetStats": "Reset statistics"
   },
+  "timePicker": {
+    "title": "Set {{prayer}}",
+    "subtitle": "Choose an exact time for this prayer.",
+    "apply": "Apply",
+    "clear": "Clear"
+  },
   "alarm": {
     "title": "It's time for {{prayer}}",
     "instructions": "To stop the reminder: a photo of the tap for ablution, or of your prayer mat.",
